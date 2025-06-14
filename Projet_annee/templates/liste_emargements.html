@@ -1,0 +1,30 @@
+<!-- templates/liste_emargements.html -->
+{% extends "base.html" %}
+{% block title %}T.T.G Network - Les emargements{% endblock %}
+{% block content %}
+  <hr>
+  <h2>Liste des Emargements</h2>
+  <ul>
+    <table>
+     
+      <tr>
+        <th>Formateur</th>
+        <th>Date</th>
+        <th>Heure</th>
+        
+      </tr>
+       {% for emargement in emargements %}
+      <tr>
+        <td>{{ emargement.formateur }}</td>
+        <td> {{ emargement.date }}</td>
+        <td> {{ emargement.heure_cours }}</td>
+        
+      </tr>
+      {% empty %}
+        <tr>
+          <td colspan="6">Aucun enregistrement trouvé.</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </ul>
+{% endblock %}

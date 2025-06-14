@@ -1,0 +1,36 @@
+<!-- templates/options.html -->
+{% extends "base.html" %}
+{% block title %}T.T.G Network - Gestion École Listes des preinscriptions{% endblock %}
+{% block content %}
+  <hr>
+  <h2>Liste des Preinscriptions</h2>
+  <ul>
+    
+      <table>
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Telephone</th>
+          <th>Filiere Souhaitee</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+        {% for preinscription in preinscriptions %}
+        <tr>
+          <td>{{ preinscription.nom }}</td>
+          <td> {{ preinscription.email }}</td>
+          <td> {{ preinscription.telephone }}</td>
+          <td> {{ preinscription.filiere_souhaitee }}</td>
+          <td> {{ preinscription.statut }}</td>
+          <td>
+            <a href="{% url 'valider_preinscription' preinscription.id %}"><button>Valider</button></a>
+            
+
+          </td>
+
+        </tr>
+         {% endfor %}
+      </table>
+   
+  </ul>
+{% endblock %}
